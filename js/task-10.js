@@ -23,7 +23,6 @@ function createBoxes(amount) {
     //  itemRef.style.cssText = `width: ${size}px; height: ${size}px;`;
     itemRef.style.backgroundColor = `${getRandomHexColor()}`;
 
-
     elements.push(itemRef);
   }
   containerRef.append(...elements);
