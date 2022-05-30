@@ -2,13 +2,17 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const buttonCreateRef = document.querySelector(`button[data-create]`);
-const buttonClearRef = document.querySelector(`button[data-destroy]`);
-const inputRef = document.querySelector(`input[type="number"]`);
-const containerRef = document.querySelector(`#boxes`);
+const refs = {
+  buttonCreateRef: document.querySelector(`button[data-create]`),
+  buttonClearRef: document.querySelector(`button[data-destroy]`),
+  inputRef: document.querySelector(`input[type="number"]`),
+  containerRef: document.querySelector(`#boxes`),
+}
+
+
 
 function onButtonCreateClick(event) {
-  createBoxes(inputRef.value);
+  createBoxes(refs.inputRef.value);
   // console.log(inputRef.value)
 }
 
@@ -25,11 +29,11 @@ function createBoxes(amount) {
 
     elements.push(itemRef);
   }
-  containerRef.append(...elements);
+  refs.containerRef.append(...elements);
 }
 
-buttonCreateRef.addEventListener(`click`, onButtonCreateClick);
+refs.buttonCreateRef.addEventListener(`click`, onButtonCreateClick);
 
-buttonClearRef.addEventListener(`click`, () => {
-  containerRef.innerHTML = "";
+refs.buttonClearRef.addEventListener(`click`, () => {
+  refs.containerRef.innerHTML = "";
 });
